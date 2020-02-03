@@ -1,0 +1,42 @@
+{
+  "name": "The Metronome App",
+  "short_name": "Metronome",
+  "description": "Your stylistic virtual metronome on the go.",
+  "icons": [
+    {
+      "src": "/assets/images/icons/launchericon-48.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    }, 
+    {
+      "src": "/assets/images/icons/launchericon-72.png",
+      "type": "image/png",
+      "sizes": "72x72"
+    }, 
+    {
+      "src": "/assets/images/icons/launchericon-96.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    }, 
+    {
+      "src": "/assets/images/icons/launchericon-144.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    }, 
+    {
+      "src": "/assets/images/icons/launchericon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }, 
+    {
+      "src": "/assets/images/icons/launchericon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    } 
+  ],
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "rgb(251,231,81)",
+  "theme_color": "rgb(251,231,81)"
+}
