@@ -67,8 +67,8 @@ const playSound = () => {
 }
 
 const getTickRate = () => {
-  const clampedBpm = +Math.max(bpm, 60);
-  return (60/clampedBpm)*1000;
+  console.log((60/bpm)*1000);
+  return (60/bpm)*1000;
 }
 
 let currentInterval;
