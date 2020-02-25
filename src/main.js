@@ -8,7 +8,7 @@ import { playTutorial } from './tutorial';
 
   playTutorial();
 
-  const MIN_BPM = 30;
+  const MIN_BPM = 40;
   const MAX_BPM = 200;
   const DEFAULT_BPM = 80;
 
