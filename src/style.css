@@ -12,6 +12,7 @@
 }
 
 html {
+  background: rgb(251,231,81);
   background: radial-gradient(#FFF4C1 5%, rgb(251,231,81) 75%);
 }
 
