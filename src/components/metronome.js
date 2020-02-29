@@ -29,10 +29,17 @@ export class Metronome {
   }
 
   preloadAudio = async () => {
-    const { audioContext, audioBuffer } = await preloadAudio('/assets/metronome.wav');
+    // need to figure out how to fix this for playing
+    // but this asset "shouldnt" be killed while playing
+    if(!this.playing) {
+      const { audioContext, audioBuffer } = await preloadAudio('/assets/metronome.wav');
 
-    this.audioContext = audioContext;
-    this.audioBuffer = audioBuffer;
+      this.audioContext = audioContext;
+      this.audioBuffer = audioBuffer;
+    }
+
+    // after a while the audio buffer/context gets garbage collected
+    setTimeout(this.preloadAudio, 20000);
   }
 
   playSound = () => {
