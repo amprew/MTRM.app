@@ -70,8 +70,13 @@ export class Metronome {
 
     decrementButton.addEventListener('mousedown', this.handleDecrementButton);
     incrementButton.addEventListener('mousedown', this.handleIncrementButton);
-
+    
     document.addEventListener('mouseup', this.handleCancelHold);
+
+    decrementButton.addEventListener('touchstart', this.handleDecrementButton);
+    incrementButton.addEventListener('touchstart', this.handleIncrementButton);
+
+    document.addEventListener('touchend', this.handleCancelHold);
   }
 
   handleInputBlur = () => {
