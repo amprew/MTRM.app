@@ -1,4 +1,4 @@
-const version = "0.0.5";
+const version = "0.0.7";
 const cacheName = `metronome-${version}`;
 self.addEventListener('install', e => {
   e.waitUntil(

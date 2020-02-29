@@ -67,16 +67,18 @@ export class Metronome {
     bpmInput.addEventListener('blur', this.handleInputBlur);
 
     metronome.addEventListener('click', this.toggleMetronome);
-
-    decrementButton.addEventListener('mousedown', this.handleDecrementButton);
-    incrementButton.addEventListener('mousedown', this.handleIncrementButton);
     
-    document.addEventListener('mouseup', this.handleCancelHold);
-
     decrementButton.addEventListener('touchstart', this.handleDecrementButton);
     incrementButton.addEventListener('touchstart', this.handleIncrementButton);
-
+    
     document.addEventListener('touchend', this.handleCancelHold);
+
+    if (!('ontouchstart' in document.documentElement)) {
+      decrementButton.addEventListener('mousedown', this.handleDecrementButton);
+      incrementButton.addEventListener('mousedown', this.handleIncrementButton);
+      
+      document.addEventListener('mouseup', this.handleCancelHold);
+    }
   }
 
   handleInputBlur = () => {
