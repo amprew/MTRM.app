@@ -1,5 +1,5 @@
 const version = "0.1.0";
-const cacheName = `metronome-${version}`;
+const cacheName = `mtrm-${version}`;
 self.addEventListener('install', e => {
   e.waitUntil(
     caches.open(cacheName).then(cache => {
@@ -7,7 +7,7 @@ self.addEventListener('install', e => {
         `/`,
         `/index.html`,
         `/manifest.json`,
-        `/assets/style.css`,
+        `/dist/style.css`,
         `/dist/main.js`,
         `/assets/metronome.wav`
       ])
