@@ -75,8 +75,8 @@ export class Metronome {
 
     metronome.addEventListener('click', this.toggleMetronome);
     
-    decrementButton.addEventListener('touchstart', this.handleDecrementButton);
-    incrementButton.addEventListener('touchstart', this.handleIncrementButton);
+    decrementButton.addEventListener('touchstart', this.handleDecrementButton, { passive: true });
+    incrementButton.addEventListener('touchstart', this.handleIncrementButton, { passive: true });
     
     document.addEventListener('touchend', this.handleCancelHold);
 
