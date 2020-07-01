@@ -18,6 +18,7 @@ export class Metronome {
   forwards = true;
   playing = false;
 
+  soundTimeout;
   playTimeout;
   holdInterval;
   holdTimeout;
@@ -51,7 +52,7 @@ export class Metronome {
   playAnimation = () => {
     const tickRate = bpmToTickRate(this.bpm);
 
-    setTimeout(this.playSound, tickRate/2);
+    this.soundTimeout = setTimeout(this.playSound, tickRate/2);
     this.playTimeout = setTimeout(this.playAnimation, tickRate);
 
     this.currentAnimation = anime({
@@ -74,16 +75,16 @@ export class Metronome {
     bpmInput.addEventListener('blur', this.handleInputBlur);
 
     metronome.addEventListener('click', this.toggleMetronome);
-    
+
     decrementButton.addEventListener('touchstart', this.handleDecrementButton, { passive: true });
     incrementButton.addEventListener('touchstart', this.handleIncrementButton, { passive: true });
-    
+
     document.addEventListener('touchend', this.handleCancelHold);
 
     if (!('ontouchstart' in document.documentElement)) {
       decrementButton.addEventListener('mousedown', this.handleDecrementButton);
       incrementButton.addEventListener('mousedown', this.handleIncrementButton);
-      
+
       document.addEventListener('mouseup', this.handleCancelHold);
     }
   }
@@ -101,6 +102,7 @@ export class Metronome {
     } else if(this.playing) {
       this.currentAnimation.pause();
       clearTimeout(this.playTimeout);
+      clearTimeout(this.soundTimeout);
     } else {
       this.playAnimation();
     }
@@ -115,7 +117,7 @@ export class Metronome {
       this.holdInterval = setInterval(this.handleDecrement, 100);
     }, 300);
   }
-  
+
   handleIncrementButton = () => {
     this.handleIncrement();
 
@@ -123,7 +125,7 @@ export class Metronome {
       this.holdInterval = setInterval(this.handleIncrement, 100);
     }, 300);
   }
-  
+
   handleDecrement = () => {
     if (this.bpm <= MIN_BPM) return;
     this.setBpm(this.bpm - 1);

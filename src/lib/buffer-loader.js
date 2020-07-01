@@ -1,4 +1,4 @@
-// 
+//
 // todo make promisified...
 
 function BufferLoader(context, urlList, callback) {
