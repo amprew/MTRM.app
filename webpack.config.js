@@ -36,7 +36,6 @@ module.exports = {
         test: /\.js(\?.*)?$/i,
         extractComments: false,
         parallel: true,
-        cache: !IS_PRODUCTION,
         terserOptions: {
           mangle: true,
           output: {
